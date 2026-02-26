@@ -480,6 +480,60 @@
         ),
       ],
       d17: [
+        // ===== d17: Каналы + кофе (добавление карточек) =====
+cardsByDay.d17 = (cardsByDay.d17 || []).concat([
+
+  card("🗺 Маршрут дня: каналы + атмосфера",
+    "Bijlmer → Centraal → Brouwersgracht → Jordaan → Westerkerk/Prinsengracht → 9 Straatjes → Bloemenmarkt → Begijnhof. Темп: медленно, красиво, без гонки.",
+    [
+      linkBtn("📍 Старт: Amsterdam Centraal", "https://www.google.com/maps/search/?api=1&query=Amsterdam%20Centraal%20Station", true),
+      linkBtn("📍 9 Straatjes (Nine Streets)", "https://www.google.com/maps/search/?api=1&query=De%209%20Straatjes%20Amsterdam", false),
+      linkBtn("📍 Bloemenmarkt", "https://www.google.com/maps/search/?api=1&query=Bloemenmarkt%20Amsterdam", false),
+      linkBtn("📍 Begijnhof", "https://www.google.com/maps/search/?api=1&query=Begijnhof%20Amsterdam", false),
+    ],
+    ["Мой совет: один район за раз", "Если устала — разворачиваемся после 9 Straatjes"]
+  ),
+
+  card("☕ Кофе-стоп №1: Toki (Jordaan)",
+    "Очень “местный” вайб и классный кофе. Идеально после первых каналов в Jordaan.",
+    [
+      linkBtn("☕ Открыть Toki на карте", "https://www.google.com/maps/search/?api=1&query=Toki%20Amsterdam", true)
+    ],
+    ["Пауза 20–30 минут = меньше усталости"]
+  ),
+
+  card("☕ Кофе-стоп №2: Screaming Beans (Nine Streets)",
+    "Супер-удобно в середине прогулки: прямо в районе 9 Straatjes.",
+    [
+      linkBtn("☕ Screaming Beans на карте", "https://www.google.com/maps/search/?api=1&query=Screaming%20Beans%20Runstraat%206%20Amsterdam", true)
+    ],
+    ["Это точка “перезагрузки” перед витринами и прогулкой дальше"]
+  ),
+
+  card("🍰 Сладкое красиво: Pluk или Pompadour (Nine Streets)",
+    "Если хочется уютно и красиво: Pluk. Если хочется “десерт как праздник”: Pompadour.",
+    [
+      linkBtn("🍰 Pluk на карте", "https://www.google.com/maps/search/?api=1&query=Pluk%20Amsterdam%209%20Streets", false),
+      linkBtn("🍫 Pompadour на карте", "https://www.google.com/maps/search/?api=1&query=Pompadour%20Huidenstraat%20Amsterdam", false)
+    ],
+    ["Мой совет: выбери одно место, чтобы не перегрузить день"]
+  ),
+
+  card("🍽 Еда по пути (без конкретных ресторанов пока)",
+    "Я бы делала так: лёгкий обед в центре (суп/салат/рыба) + вечером спокойный ужин ближе к вашему району, чтобы не возвращаться уставшей.",
+    [],
+    ["Если захочешь — я подберу 3–5 точек под ваш вкус и бюджет"]
+  ),
+
+  card("🛍 Магазины/атмосфера по маршруту",
+    "9 Straatjes — идеальная зона: маленькие магазины, дизайн, винтаж, уютные витрины. Тут просто приятно идти и смотреть — без цели “купить”.",
+    [
+      linkBtn("🛍 9 Straatjes — зона", "https://www.google.com/maps/search/?api=1&query=De%209%20Straatjes%20Amsterdam", true)
+    ],
+    ["Фототочки: мосты на Prinsengracht и Herengracht"]
+  ),
+
+]);
         card("🛶 Каналы и прогулка",
           "Добавим 2 маршрута: «открыточный» и «без туристов», плюс точки на закат.",
           [ linkBtn("📍 Amsterdam centrum", "https://www.google.com/maps/search/?api=1&query=Amsterdam%20centrum", true) ],
