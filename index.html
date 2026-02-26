@@ -580,9 +580,17 @@ summary{ font-weight: 700; }
         </div>
       `;
       const cards = (cardsByDay[dayId] || []).join("");
-      dayContent.innerHTML = head + cards;
-      pageHint.textContent = `Открыто: #${dayId} (можно отправить себе ссылку)`;
-    }
+      dayContent.innerHTML = head + cards + notesCard(dayId);
+const notes = document.getElementById("notes");
+const state = document.getElementById("notesState");
+if(notes){
+  notes.addEventListener("input", () => {
+    localStorage.setItem(`ams_notes_${dayId}`, notes.value);
+    if(state) state.textContent = "сохранено";
+    clearTimeout(window.__nsT);
+    window.__nsT = setTimeout(()=>{ if(state) state.textContent = "готово"; }, 800);
+  });
+}
 
     function applySearch(){
       const term = (q.value||"").trim().toLowerCase();
