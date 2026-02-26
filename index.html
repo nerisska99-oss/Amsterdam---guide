@@ -656,9 +656,8 @@
       count.textContent = "—";
 
       if(r.anchor){
-        const el = document.getElementById(r.anchor);
-        if(el) setTimeout(()=>el.scrollIntoView({behavior:"smooth", block:"start"}), 50);
-      }
+  setTimeout(() => scrollToAnchor(r.anchor), 80);
+     }
     }
 
     window.addEventListener("hashchange", render);
