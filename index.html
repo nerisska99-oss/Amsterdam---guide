@@ -572,7 +572,17 @@
       if(isDay) return { page:"day", dayId:h };
       return { page:"home", anchor:h };
     }
+    function scrollToAnchor(id){
+  const el = document.getElementById(id);
+  if(!el) return;
 
+  // учитываем высоту шапки
+  const header = document.querySelector("header");
+  const offset = (header ? header.getBoundingClientRect().height : 0) + 12;
+
+  const y = el.getBoundingClientRect().top + window.scrollY - offset;
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
     function renderTabs(activeDayId){
       tabsEl.innerHTML = days.map(d => `
         <a class="tab ${d.id===activeDayId?'active':''}" href="#${esc(d.id)}">
