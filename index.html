@@ -12,25 +12,25 @@
   <style>
     /* MOBILE ONLY: делаем комфортно на телефоне */
     :root{
-  --bg:#f6f7fb;
-  --card:#ffffff;
-  --text:#121426;
-  --muted:#5b607a;
-  --line:rgba(15, 20, 40, .10);
-  --accent:#f9be00;
-  --accent2:#0E0871;
-  --shadow: 0 18px 40px rgba(15,20,40,.10);
-  --radius:18px;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#121426;
+      --muted:#5b607a;
+      --line:rgba(15, 20, 40, .10);
+      --accent:#f9be00;
+      --accent2:#0E0871;
+      --shadow: 0 18px 40px rgba(15,20,40,.10);
+      --radius:18px;
 
-  /* +20% к прошлым значениям */
-  --fs-base: 19px;      /* было 16 */
-  --fs-small: 17px;     /* было 14 */
-  --fs-title: 22px;     /* было 18 */
-  --fs-h2: 20px;        /* было 16 */
-  --fs-tab: 18px;       /* было 15 */
-  --fs-btn: 18px;       /* было 15 */
-}
+      /* +20% к прошлым значениям */
+      --fs-base: 19px;
+      --fs-small: 17px;
+      --fs-title: 22px;
+      --fs-h2: 20px;
+      --fs-tab: 18px;
+      --fs-btn: 18px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -43,12 +43,11 @@
       color:var(--text);
     }
 
-    /* Ограничим интерфейс под телефон (ПК просто увидит “мобилку”) */
     .app{
       max-width:520px;
       margin:0 auto;
       min-height:100%;
-      padding-bottom:88px; /* под нижнюю панель */
+      padding-bottom:88px;
     }
 
     header{
@@ -61,14 +60,11 @@
       padding:14px 14px 10px;
       display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
     }
-    .title{
-      display:flex; flex-direction:column; gap:4px;
-    }
+    .title{display:flex; flex-direction:column; gap:4px;}
     .title h1{margin:0;font-size:16px;letter-spacing:.2px}
     .title .sub{color:var(--muted);font-size:12px;line-height:1.3}
-    .chipRow{
-      display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end;
-    }
+
+    .chipRow{display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end;}
     .chip{
       padding:8px 10px;border-radius:999px;
       background:rgba(255,255,255,.8);
@@ -81,7 +77,6 @@
     }
     .chip b{color:var(--accent2);font-weight:700}
 
-    /* “Переключатель дней” (как вкладки) */
     .tabs{
       display:flex; gap:8px; overflow:auto;
       padding:0 14px 12px;
@@ -148,7 +143,6 @@
     summary{cursor:pointer; font-size:13px; color:var(--text)}
     .hidden{display:none}
 
-    /* Нижняя панель (поиск + быстрые кнопки) */
     .foot{
       position:fixed; left:0; right:0; bottom:0;
       background: rgba(246,247,251,.90);
@@ -185,7 +179,6 @@
       white-space:nowrap;
     }
 
-    /* маленькая “кнопка назад” в режиме дня */
     .backRow{
       display:flex; justify-content:space-between; align-items:center; gap:10px;
       margin-bottom:10px;
@@ -200,151 +193,123 @@
       font-size:13px;
     }
     .pageHint{color:var(--muted); font-size:12px}
+
     /* ✅ FORCE: крупнее и читабельно на мобильном */
-html{
-  font-size: 120% !important; /* +20% ко всему через rem */
-  -webkit-text-size-adjust: 120% !important;
-}
+    html{
+      font-size: 120% !important;
+      -webkit-text-size-adjust: 120% !important;
+    }
+    body{
+      font-size: 1rem !important;
+      line-height: 1.6 !important;
+    }
+    .txt, .list{
+      font-size: 1rem !important;
+      line-height: 1.7 !important;
+    }
+    .title h1{ font-size: 1.15rem !important; }
+    .title .sub{ font-size: 0.95rem !important; }
+    .card h2{ font-size: 1.05rem !important; }
+    .tab{ font-size: 0.98rem !important; padding: 13px 14px !important; }
+    .btn{ font-size: 0.98rem !important; padding: 12px 14px !important; }
+    .pill, .badge{ font-size: 0.9rem !important; }
+    input{ font-size: 16px !important; }
 
-body{
-  font-size: 1rem !important;
-  line-height: 1.6 !important;
-}
-
-/* Текст в карточках — крупнее принудительно */
-.txt, .list{
-  font-size: 1rem !important;
-  line-height: 1.7 !important;
-}
-
-/* Заголовки и UI элементы */
-.title h1{ font-size: 1.15rem !important; }
-.title .sub{ font-size: 0.95rem !important; }
-
-.card h2{ font-size: 1.05rem !important; }
-
-.tab{ font-size: 0.98rem !important; padding: 13px 14px !important; }
-.btn{ font-size: 0.98rem !important; padding: 12px 14px !important; }
-
-.pill, .badge{ font-size: 0.9rem !important; }
-
-/* Важно для мобилки: чтобы клавиатура не делала мелкий текст */
-input{ font-size: 16px !important; }
     /* ====== BEAUTY PACK: контрастные, компактные, чётко отделённые карточки ====== */
-:root{
-  --bg:#f4f6fb;
-  --card:#ffffff;
-  --card2:#fbfcff;
-  --text:#10142a;
-  --muted:#525a78;
-  --line:rgba(16,20,42,.10);
-  --line2:rgba(16,20,42,.14);
+    :root{
+      --bg:#f4f6fb;
+      --card:#ffffff;
+      --card2:#fbfcff;
+      --text:#10142a;
+      --muted:#525a78;
+      --line:rgba(16,20,42,.10);
+      --line2:rgba(16,20,42,.14);
 
-  --accent:#f9be00;
-  --accent2:#0E0871;
+      --accent:#f9be00;
+      --accent2:#0E0871;
 
-  --shadow: 0 14px 34px rgba(16,20,42,.10);
-  --shadow2: 0 10px 22px rgba(16,20,42,.08);
+      --shadow: 0 14px 34px rgba(16,20,42,.10);
+      --shadow2: 0 10px 22px rgba(16,20,42,.08);
 
-  --radius:18px;
-  --radius2:14px;
-}
+      --radius:18px;
+      --radius2:14px;
+    }
 
-/* фон чуть “дороже” */
-body{
-  background:
-    radial-gradient(700px 360px at 12% 0%, rgba(249,190,0,.26), transparent 60%),
-    radial-gradient(650px 340px at 92% 6%, rgba(14,8,113,.12), transparent 60%),
-    linear-gradient(180deg, #f6f7fd, #f2f4fb 55%, #f4f6fb);
-}
+    body{
+      background:
+        radial-gradient(700px 360px at 12% 0%, rgba(249,190,0,.26), transparent 60%),
+        radial-gradient(650px 340px at 92% 6%, rgba(14,8,113,.12), transparent 60%),
+        linear-gradient(180deg, #f6f7fd, #f2f4fb 55%, #f4f6fb);
+    }
 
-/* сетка компактнее */
-.grid{ gap:10px !important; }
+    .grid{ gap:10px !important; }
 
-/* карточка — с чёткой рамкой + мягкой тенью + верхним “бортиком” */
-.card{
-  background: linear-gradient(180deg, var(--card), var(--card2));
-  border: 1px solid var(--line2);
-  border-radius: var(--radius);
-  padding: 14px;
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
-}
+    .card{
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border: 1px solid var(--line2);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; left:0; top:0; right:0; height:3px;
+      background: linear-gradient(90deg, rgba(14,8,113,.65), rgba(249,190,0,.75));
+      opacity:.55;
+    }
+    .card h2{
+      font-weight: 800;
+      letter-spacing: .1px;
+      margin: 0 0 8px;
+    }
+    .txt, .list{ color: var(--muted); }
 
-.card::before{
-  content:"";
-  position:absolute; left:0; top:0; right:0; height:3px;
-  background: linear-gradient(90deg, rgba(14,8,113,.65), rgba(249,190,0,.75));
-  opacity:.55;
-}
+    .hr{ height:1px; background: var(--line); margin: 12px 0; }
 
-/* компактные заголовки */
-.card h2{
-  font-weight: 800;
-  letter-spacing: .1px;
-  margin: 0 0 8px;
-}
+    .pill, .badge{
+      background: rgba(16,20,42,.04) !important;
+      border: 1px solid rgba(16,20,42,.10) !important;
+    }
 
-/* текст спокойнее и читабельнее */
-.txt, .list{
-  color: var(--muted);
-}
+    .btn{
+      background: rgba(16,20,42,.04);
+      border: 1px solid rgba(16,20,42,.10);
+      box-shadow: var(--shadow2);
+    }
+    .btn.primary{
+      background: rgba(249,190,0,.40) !important;
+      border-color: rgba(249,190,0,.70) !important;
+    }
 
-/* “разделители” внутри карточек */
-.hr{
-  height:1px; background: var(--line);
-  margin: 12px 0;
-}
+    .tab{
+      border: 1px solid rgba(16,20,42,.12) !important;
+      background: rgba(255,255,255,.85) !important;
+    }
+    .tab.active{
+      background: linear-gradient(180deg, rgba(14,8,113,.12), rgba(255,255,255,.92)) !important;
+      border-color: rgba(14,8,113,.25) !important;
+    }
 
-/* бейджи и пиллы — контрастнее */
-.pill, .badge{
-  background: rgba(16,20,42,.04) !important;
-  border: 1px solid rgba(16,20,42,.10) !important;
-}
+    details{
+      background: rgba(16,20,42,.03) !important;
+      border: 1px solid rgba(16,20,42,.10) !important;
+    }
+    summary{ font-weight: 700; }
 
-/* кнопки — более “приложение”, компактно */
-.btn{
-  background: rgba(16,20,42,.04);
-  border: 1px solid rgba(16,20,42,.10);
-  box-shadow: var(--shadow2);
-}
-
-.btn.primary{
-  background: rgba(249,190,0,.40) !important;
-  border-color: rgba(249,190,0,.70) !important;
-}
-
-/* вкладки-дни — чётче активная */
-.tab{
-  border: 1px solid rgba(16,20,42,.12) !important;
-  background: rgba(255,255,255,.85) !important;
-}
-.tab.active{
-  background: linear-gradient(180deg, rgba(14,8,113,.12), rgba(255,255,255,.92)) !important;
-  border-color: rgba(14,8,113,.25) !important;
-}
-
-/* details красивее */
-details{
-  background: rgba(16,20,42,.03) !important;
-  border: 1px solid rgba(16,20,42,.10) !important;
-}
-summary{ font-weight: 700; }
-
-/* маленькие “метки” типа INFO / TODO / IMPORTANT */
-.tag{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:7px 10px;
-  border-radius:999px;
-  font-size:.9rem;
-  border:1px solid rgba(16,20,42,.10);
-  background: rgba(255,255,255,.75);
-  box-shadow: 0 8px 18px rgba(16,20,42,.06);
-}
-.tag b{color: var(--accent2)}
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:.9rem;
+      border:1px solid rgba(16,20,42,.10);
+      background: rgba(255,255,255,.75);
+      box-shadow: 0 8px 18px rgba(16,20,42,.06);
+    }
+    .tag b{color: var(--accent2)}
   </style>
 </head>
 
@@ -365,12 +330,10 @@ summary{ font-weight: 700; }
         </div>
       </div>
 
-      <!-- вкладки-дни -->
       <div class="tabs" id="tabs"></div>
     </header>
 
     <main>
-      <!-- HOME: быстрые карточки -->
       <section id="homeSection" class="grid">
         <div class="card" id="hotel">
           <h2>🏨 Holiday Inn Express Amsterdam – Arena Towers</h2>
@@ -445,7 +408,6 @@ summary{ font-weight: 700; }
         </div>
       </section>
 
-      <!-- DAY PAGE -->
       <section id="daySection" class="hidden">
         <div class="backRow">
           <a class="back" href="#home">← На главную</a>
@@ -521,9 +483,11 @@ summary{ font-weight: 700; }
     };
 
     function esc(s){return (s||"").replace(/[&<>"]/g,m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[m]));}
+
     function linkBtn(label, href, primary=false){
       return `<a class="btn ${primary?'primary':''}" target="_blank" rel="noopener" href="${esc(href)}">${esc(label)}</a>`;
     }
+
     function card(title, text, buttons=[], pills=[]){
       const btns = buttons.length ? `<div class="btns">${buttons.join("")}</div>` : "";
       const meta = pills.length ? `<div class="meta">${pills.map(p=>`<span class="pill">${esc(p)}</span>`).join("")}</div>` : "";
@@ -533,6 +497,34 @@ summary{ font-weight: 700; }
           <div class="txt">${esc(text)}</div>
           ${btns}
           ${meta}
+        </div>
+      `;
+    }
+
+    function notesCard(dayId){
+      const key = `ams_notes_${dayId}`;
+      const saved = localStorage.getItem(key) || "";
+      return `
+        <div class="card js-card">
+          <h2>📝 Мои заметки на день</h2>
+          <div class="txt">Сюда можно дописывать планы, адреса, билеты — всё сохранится на телефоне офлайн.</div>
+          <div class="hr"></div>
+          <textarea id="notes" style="
+            width:100%;
+            min-height:140px;
+            border-radius:14px;
+            border:1px solid rgba(16,20,42,.12);
+            background:rgba(255,255,255,.92);
+            padding:12px 12px;
+            font: inherit;
+            color: var(--text);
+            line-height:1.55;
+            outline:none;
+          " placeholder="Например: 12:30 — выезд, 14:00 — Keukenhof, билеты в почте…">${saved}</textarea>
+          <div class="meta" style="margin-top:10px">
+            <span class="pill">Автосохранение</span>
+            <span class="pill" id="notesState">готово</span>
+          </div>
         </div>
       `;
     }
@@ -551,7 +543,6 @@ summary{ font-weight: 700; }
       if(h === "home" || h === "") return { page:"home" };
       const isDay = days.some(d=>d.id===h);
       if(isDay) return { page:"day", dayId:h };
-      // якоря внутри home (#hotel/#arrival/#transport)
       return { page:"home", anchor:h };
     }
 
@@ -581,16 +572,18 @@ summary{ font-weight: 700; }
       `;
       const cards = (cardsByDay[dayId] || []).join("");
       dayContent.innerHTML = head + cards + notesCard(dayId);
-const notes = document.getElementById("notes");
-const state = document.getElementById("notesState");
-if(notes){
-  notes.addEventListener("input", () => {
-    localStorage.setItem(`ams_notes_${dayId}`, notes.value);
-    if(state) state.textContent = "сохранено";
-    clearTimeout(window.__nsT);
-    window.__nsT = setTimeout(()=>{ if(state) state.textContent = "готово"; }, 800);
-  });
-}
+
+      const notes = document.getElementById("notes");
+      const state = document.getElementById("notesState");
+      if(notes){
+        notes.addEventListener("input", () => {
+          localStorage.setItem(`ams_notes_${dayId}`, notes.value);
+          if(state) state.textContent = "сохранено";
+          clearTimeout(window.__nsT);
+          window.__nsT = setTimeout(()=>{ if(state) state.textContent = "готово"; }, 800);
+        });
+      }
+    }
 
     function applySearch(){
       const term = (q.value||"").trim().toLowerCase();
@@ -619,14 +612,12 @@ if(notes){
         return;
       }
 
-      // home
       daySection.classList.add("hidden");
       homeSection.classList.remove("hidden");
       renderTabs(null);
       q.placeholder = "Поиск по путеводителю (в режиме дня ищет по дню)…";
       count.textContent = "—";
 
-      // если пришли на якорь типа #hotel
       if(r.anchor){
         const el = document.getElementById(r.anchor);
         if(el) setTimeout(()=>el.scrollIntoView({behavior:"smooth", block:"start"}), 50);
@@ -646,32 +637,5 @@ if(notes){
       });
     }
   </script>
-  function notesCard(dayId){
-  const key = `ams_notes_${dayId}`;
-  const saved = localStorage.getItem(key) || "";
-  return `
-    <div class="card js-card">
-      <h2>📝 Мои заметки на день</h2>
-      <div class="txt">Сюда можно дописывать планы, адреса, билеты — всё сохранится на телефоне офлайн.</div>
-      <div class="hr"></div>
-      <textarea id="notes" style="
-        width:100%;
-        min-height:140px;
-        border-radius:14px;
-        border:1px solid rgba(16,20,42,.12);
-        background:rgba(255,255,255,.92);
-        padding:12px 12px;
-        font: inherit;
-        color: var(--text);
-        line-height:1.55;
-        outline:none;
-      " placeholder="Например: 12:30 — выезд, 14:00 — Keukenhof, билеты в почте…">${saved}</textarea>
-      <div class="meta" style="margin-top:10px">
-        <span class="pill">Автосохранение</span>
-        <span class="pill" id="notesState">готово</span>
-      </div>
-    </div>
-  `;
-}
 </body>
 </html>
