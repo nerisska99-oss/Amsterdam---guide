@@ -638,5 +638,32 @@ summary{ font-weight: 700; }
       });
     }
   </script>
+  function notesCard(dayId){
+  const key = `ams_notes_${dayId}`;
+  const saved = localStorage.getItem(key) || "";
+  return `
+    <div class="card js-card">
+      <h2>📝 Мои заметки на день</h2>
+      <div class="txt">Сюда можно дописывать планы, адреса, билеты — всё сохранится на телефоне офлайн.</div>
+      <div class="hr"></div>
+      <textarea id="notes" style="
+        width:100%;
+        min-height:140px;
+        border-radius:14px;
+        border:1px solid rgba(16,20,42,.12);
+        background:rgba(255,255,255,.92);
+        padding:12px 12px;
+        font: inherit;
+        color: var(--text);
+        line-height:1.55;
+        outline:none;
+      " placeholder="Например: 12:30 — выезд, 14:00 — Keukenhof, билеты в почте…">${saved}</textarea>
+      <div class="meta" style="margin-top:10px">
+        <span class="pill">Автосохранение</span>
+        <span class="pill" id="notesState">готово</span>
+      </div>
+    </div>
+  `;
+}
 </body>
 </html>
