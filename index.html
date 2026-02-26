@@ -200,6 +200,36 @@
       font-size:13px;
     }
     .pageHint{color:var(--muted); font-size:12px}
+    /* ✅ FORCE: крупнее и читабельно на мобильном */
+html{
+  font-size: 120% !important; /* +20% ко всему через rem */
+  -webkit-text-size-adjust: 120% !important;
+}
+
+body{
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Текст в карточках — крупнее принудительно */
+.txt, .list{
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+}
+
+/* Заголовки и UI элементы */
+.title h1{ font-size: 1.15rem !important; }
+.title .sub{ font-size: 0.95rem !important; }
+
+.card h2{ font-size: 1.05rem !important; }
+
+.tab{ font-size: 0.98rem !important; padding: 13px 14px !important; }
+.btn{ font-size: 0.98rem !important; padding: 12px 14px !important; }
+
+.pill, .badge{ font-size: 0.9rem !important; }
+
+/* Важно для мобилки: чтобы клавиатура не делала мелкий текст */
+input{ font-size: 16px !important; }
   </style>
 </head>
 
