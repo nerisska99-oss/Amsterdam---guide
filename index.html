@@ -3,133 +3,163 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#0E0871" />
-  <meta name="theme-color" content="#0b1220" />
-<link rel="manifest" href="manifest.webmanifest" />
-<link rel="apple-touch-icon" href="icon-192.png" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Amsterdam · 15–20 Apr 2026</title>
+
   <style>
+    /* MOBILE ONLY: делаем комфортно на телефоне */
     :root{
-      --bg:#0b0b12;
-      --card:#141425;
-      --card2:#10101c;
-      --text:#f3f3ff;
-      --muted:#b9b9d6;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#121426;
+      --muted:#5b607a;
+      --line:rgba(15, 20, 40, .10);
       --accent:#f9be00;
-      --line:rgba(255,255,255,.10);
-      --ok:#7CFCB2;
-      --warn:#FFD37A;
+      --accent2:#0E0871;
+      --shadow: 0 18px 40px rgba(15,20,40,.10);
+      --radius:18px;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(249,190,0,.18), transparent 55%),
-                  radial-gradient(900px 500px at 80% 10%, rgba(70,130,255,.14), transparent 60%),
-                  var(--bg);
+      background:
+        radial-gradient(700px 360px at 15% 0%, rgba(249,190,0,.25), transparent 60%),
+        radial-gradient(600px 320px at 90% 5%, rgba(14,8,113,.12), transparent 60%),
+        var(--bg);
       color:var(--text);
     }
-    .wrap{max-width:980px;margin:0 auto;padding:18px 14px 90px}
+
+    /* Ограничим интерфейс под телефон (ПК просто увидит “мобилку”) */
+    .app{
+      max-width:520px;
+      margin:0 auto;
+      min-height:100%;
+      padding-bottom:88px; /* под нижнюю панель */
+    }
+
     header{
-      position:sticky;top:0;z-index:10;
+      position:sticky; top:0; z-index:10;
+      background: rgba(246,247,251,.86);
       backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(11,11,18,.92), rgba(11,11,18,.70));
       border-bottom:1px solid var(--line);
     }
     .top{
-      max-width:980px;margin:0 auto;padding:14px 14px 10px;
-      display:flex;gap:12px;align-items:center;justify-content:space-between;
+      padding:14px 14px 10px;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
     }
     .title{
-      display:flex;flex-direction:column;gap:4px;
+      display:flex; flex-direction:column; gap:4px;
     }
     .title h1{margin:0;font-size:16px;letter-spacing:.2px}
-    .title .sub{color:var(--muted);font-size:12px}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .title .sub{color:var(--muted);font-size:12px;line-height:1.3}
+    .chipRow{
+      display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end;
+    }
     .chip{
       padding:8px 10px;border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.8);
+      border:1px solid var(--line);
       color:var(--text);
       font-size:12px; text-decoration:none;
-      display:inline-flex;gap:8px;align-items:center;
+      display:inline-flex; gap:8px; align-items:center;
+      box-shadow: 0 8px 18px rgba(15,20,40,.06);
+      white-space:nowrap;
     }
-    .chip b{color:var(--accent);font-weight:700}
+    .chip b{color:var(--accent2);font-weight:700}
+
+    /* “Переключатель дней” (как вкладки) */
     .tabs{
-      max-width:980px;margin:0 auto;
-      display:flex;gap:8px;overflow:auto;padding:0 14px 12px;
+      display:flex; gap:8px; overflow:auto;
+      padding:0 14px 12px;
       -webkit-overflow-scrolling: touch;
     }
     .tab{
       flex:0 0 auto;
       padding:10px 12px;border-radius:14px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.75);
+      border:1px solid var(--line);
       color:var(--text);
       font-size:13px;
       cursor:pointer;
+      text-decoration:none;
+      box-shadow: 0 10px 22px rgba(15,20,40,.06);
     }
     .tab.active{
-      background:rgba(249,190,0,.14);
-      border-color: rgba(249,190,0,.35);
-      box-shadow: 0 10px 30px rgba(249,190,0,.08);
+      border-color: rgba(14,8,113,.28);
+      background: linear-gradient(180deg, rgba(14,8,113,.08), rgba(255,255,255,.85));
     }
-    .grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
+
+    main{padding:14px}
+    .grid{display:grid;grid-template-columns:1fr;gap:12px}
+
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background:var(--card);
       border:1px solid var(--line);
-      border-radius:18px;
+      border-radius:var(--radius);
       padding:14px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      box-shadow: var(--shadow);
     }
     .card h2{margin:0 0 10px;font-size:14px}
-    .meta{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
+    .txt{color:var(--muted); font-size:13px; line-height:1.5}
+    .list{margin:8px 0 0; padding-left:18px; color:var(--muted); font-size:13px; line-height:1.5}
+    .meta{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
     .pill{
       font-size:12px;color:var(--muted);
       padding:7px 10px;border-radius:999px;
-      background:rgba(0,0,0,.25);
-      border:1px solid rgba(255,255,255,.09);
+      background:rgba(15,20,40,.04);
+      border:1px solid rgba(15,20,40,.08);
     }
-    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
     .btn{
       display:inline-flex;align-items:center;gap:8px;
       padding:10px 12px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
+      border:1px solid rgba(15,20,40,.10);
+      background:rgba(15,20,40,.04);
       color:var(--text);
       text-decoration:none;
       font-size:13px;
     }
     .btn.primary{
-      background:rgba(249,190,0,.16);
-      border-color: rgba(249,190,0,.35);
+      background:rgba(249,190,0,.35);
+      border-color: rgba(249,190,0,.55);
     }
-    .btn small{color:var(--muted)}
     details{
-      border:1px solid rgba(255,255,255,.09);
+      border:1px solid rgba(15,20,40,.10);
       border-radius:14px;
       padding:10px 12px;
-      background:rgba(0,0,0,.18);
+      background:rgba(15,20,40,.03);
+      margin-top:10px;
     }
     summary{cursor:pointer; font-size:13px; color:var(--text)}
-    .txt{color:var(--muted); font-size:13px; line-height:1.5; margin-top:8px}
-    .list{margin:8px 0 0; padding-left:18px; color:var(--muted); font-size:13px; line-height:1.5}
+    .hidden{display:none}
+
+    /* Нижняя панель (поиск + быстрые кнопки) */
     .foot{
-      position:fixed;left:0;right:0;bottom:0;
+      position:fixed; left:0; right:0; bottom:0;
+      background: rgba(246,247,251,.90);
       backdrop-filter: blur(12px);
-      background: linear-gradient(to top, rgba(11,11,18,.92), rgba(11,11,18,.60));
       border-top:1px solid var(--line);
-      padding:10px 14px;
+      padding:10px 12px;
+      z-index:20;
     }
-    .footin{max-width:980px;margin:0 auto;display:flex;gap:10px;align-items:center;justify-content:space-between}
+    .footin{
+      max-width:520px; margin:0 auto;
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+    }
     .search{
       flex:1;
-      display:flex;gap:10px;align-items:center;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
+      display:flex; gap:10px; align-items:center;
+      border:1px solid rgba(15,20,40,.12);
+      background:rgba(255,255,255,.85);
       border-radius:14px;
       padding:10px 12px;
+      box-shadow: 0 10px 20px rgba(15,20,40,.06);
     }
     input{
       width:100%;
@@ -141,261 +171,318 @@
     .badge{
       font-size:12px;color:var(--muted);
       padding:8px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.22);
+      border:1px solid rgba(15,20,40,.10);
+      background:rgba(255,255,255,.8);
       white-space:nowrap;
     }
-    .hidden{display:none}
+
+    /* маленькая “кнопка назад” в режиме дня */
+    .backRow{
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      margin-bottom:10px;
+    }
+    .back{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:14px;
+      border:1px solid rgba(15,20,40,.10);
+      background:rgba(255,255,255,.85);
+      text-decoration:none; color:var(--text);
+      box-shadow: 0 10px 20px rgba(15,20,40,.06);
+      font-size:13px;
+    }
+    .pageHint{color:var(--muted); font-size:12px}
   </style>
 </head>
+
 <body>
+  <div class="app">
 
-<header>
-  <div class="top">
-    <div class="title">
-      <h1>Amsterdam · 15–20 April 2026</h1>
-      <div class="sub">Мой путеводитель по дням · офлайн на телефоне</div>
-    </div>
-    <div class="chips">
-      <a class="chip" href="#hotel">🏨 <b>Отель</b></a>
-      <a class="chip" href="#arrival">✈️ <b>Прилет</b></a>
-      <a class="chip" href="#transport">🚆 <b>Транспорт</b></a>
-    </div>
-  </div>
-
-  <div class="tabs" id="tabs"></div>
-</header>
-
-<div class="wrap">
-  <!-- QUICK CARDS -->
-  <div class="grid">
-    <div class="card" id="hotel">
-      <h2>🏨 Holiday Inn Express Amsterdam – Arena Towers</h2>
-      <div class="txt">
-        База поездки: спокойный район Zuidoost, рядом станция Bijlmer ArenA — удобно в центр, Утрехт и на концерт.
-      </div>
-      <div class="btns">
-        <!-- Впиши точный адрес, когда будет под рукой (я помогу оформить) -->
-        <a class="btn primary" target="_blank" rel="noopener"
-           href="https://www.google.com/maps/search/?api=1&query=Holiday%20Inn%20Express%20Amsterdam%20Arena%20Towers">
-          📍 Открыть на карте
-        </a>
-        <a class="btn" href="#transport">🚆 Шпаргалка транспорта</a>
-      </div>
-      <div class="meta">
-        <span class="pill">Чек-ин: (добавим)</span>
-        <span class="pill">Бронь №: (добавим)</span>
-      </div>
-    </div>
-
-    <div class="card" id="arrival">
-      <h2>✈️ Прилет: Schiphol → Отель</h2>
-      <details open>
-        <summary>Сценарий на первые 60 минут</summary>
-        <div class="txt">
-          После прилёта лучше не усложнять: поезд — самый быстрый и понятный путь в ваш район.
+    <header>
+      <div class="top">
+        <div class="title">
+          <h1>Amsterdam · 15–20 April 2026</h1>
+          <div class="sub">Путеводитель офлайн · каждый день открывается как отдельная страница (#d15…)</div>
         </div>
-        <ol class="list">
-          <li>Следуем указателям <b>Trains</b> в Schiphol (всё внутри аэропорта).</li>
-          <li>Покупаем билет до <b>Amsterdam Bijlmer ArenA</b> или используем банковскую карту (OVpay).</li>
-          <li>Едем ~15–20 минут, выходим, 5 минут пешком до отеля.</li>
-        </ol>
-        <div class="btns">
-          <a class="btn primary" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/dir/?api=1&origin=Amsterdam%20Airport%20Schiphol&destination=Amsterdam%20Bijlmer%20ArenA%20station&travelmode=transit">
-            🚆 Маршрут до Bijlmer ArenA
-          </a>
-          <a class="btn" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/dir/?api=1&origin=Amsterdam%20Bijlmer%20ArenA%20station&destination=Holiday%20Inn%20Express%20Amsterdam%20Arena%20Towers&travelmode=walking">
-            🚶 Пешком до отеля
-          </a>
+        <div class="chipRow">
+          <a class="chip" href="#home">🏠 <b>Главная</b></a>
+          <a class="chip" href="#hotel">🏨 <b>Отель</b></a>
+          <a class="chip" href="#arrival">✈️ <b>Прилет</b></a>
+          <a class="chip" href="#transport">🚆 <b>Транспорт</b></a>
         </div>
-      </details>
-      <details>
-        <summary>Если “шаттл до города”</summary>
-        <div class="txt">
-          “Шаттл” обычно означает автобус до центра (Museumplein/Leidseplein). Но он не ведёт прямо к вашему отелю.
-          Лучше — поезд сразу в Zuidoost.
+      </div>
+
+      <!-- вкладки-дни -->
+      <div class="tabs" id="tabs"></div>
+    </header>
+
+    <main>
+      <!-- HOME: быстрые карточки -->
+      <section id="homeSection" class="grid">
+        <div class="card" id="hotel">
+          <h2>🏨 Holiday Inn Express Amsterdam – Arena Towers</h2>
+          <div class="txt">
+            База поездки: район Zuidoost, рядом станция Bijlmer ArenA — удобно в центр, Утрехт и на концерт.
+          </div>
+          <div class="btns">
+            <a class="btn primary" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Holiday%20Inn%20Express%20Amsterdam%20Arena%20Towers">
+              📍 Открыть на карте
+            </a>
+            <a class="btn" href="#transport">🚆 Шпаргалка транспорта</a>
+          </div>
+          <div class="meta">
+            <span class="pill">Чек-ин: (добавим)</span>
+            <span class="pill">Бронь №: (добавим)</span>
+          </div>
         </div>
-      </details>
-    </div>
 
-    <div class="card" id="transport">
-      <h2>🚆 Транспорт (быстро и без стресса)</h2>
-      <ul class="list">
-        <li><b>Поезда NS</b> — для аэропорта и Утрехта.</li>
-        <li><b>Метро/трамвай</b> — для центра.</li>
-        <li>Оплата часто работает банковской картой (OVpay): приложил на входе и на выходе.</li>
-      </ul>
-      <div class="btns">
-        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Amsterdam%20Bijlmer%20ArenA%20station">
-          🚉 Станция Bijlmer ArenA
-        </a>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Amsterdam%20Centraal%20Station">
-          🚆 Amsterdam Centraal
-        </a>
-      </div>
-    </div>
-  </div>
+        <div class="card" id="arrival">
+          <h2>✈️ Прилет: Schiphol → Отель</h2>
+          <details open>
+            <summary>Сценарий на первые 60 минут</summary>
+            <div class="txt">Самый простой и быстрый вариант — поезд в ваш район.</div>
+            <ol class="list">
+              <li>В аэропорту идём по указателям <b>Trains</b>.</li>
+              <li>Берём билет до <b>Amsterdam Bijlmer ArenA</b> (или OVpay банковской картой).</li>
+              <li>Едем ~15–20 минут, затем 5 минут пешком до отеля.</li>
+            </ol>
+            <div class="btns">
+              <a class="btn primary" target="_blank" rel="noopener"
+                href="https://www.google.com/maps/dir/?api=1&origin=Amsterdam%20Airport%20Schiphol&destination=Amsterdam%20Bijlmer%20ArenA%20station&travelmode=transit">
+                🚆 Маршрут до Bijlmer ArenA
+              </a>
+              <a class="btn" target="_blank" rel="noopener"
+                href="https://www.google.com/maps/dir/?api=1&origin=Amsterdam%20Bijlmer%20ArenA%20station&destination=Holiday%20Inn%20Express%20Amsterdam%20Arena%20Towers&travelmode=walking">
+                🚶 Пешком до отеля
+              </a>
+            </div>
+          </details>
+          <details>
+            <summary>Если “шаттл до города”</summary>
+            <div class="txt">
+              Шаттл обычно идёт в центр (Museumplein/Leidseplein), но не прямо к вашему отелю.
+              В ваш район логичнее сразу поездом.
+            </div>
+          </details>
+        </div>
 
-  <!-- DAY CONTENT -->
-  <div class="grid" id="dayContent"></div>
-</div>
-
-<div class="foot">
-  <div class="footin">
-    <div class="search">
-      🔎 <input id="q" placeholder="Поиск по путеводителю: Keukenhof, ужин, музей, билет..." />
-    </div>
-    <div class="badge" id="count">0 карточек</div>
-  </div>
-</div>
-
-<script>
-  const days = [
-    { id:"d15", label:"15 апр · Прилет",  title:"Прилет и мягкий старт", mood:"Спокойно заселиться, выдохнуть и почувствовать город." },
-    { id:"d16", label:"16 апр · Keukenhof", title:"День цветов", mood:"Весна как открытка: тюльпаны, ветер, фотогеничность на каждом шагу." },
-    { id:"d17", label:"17 апр · Центр",  title:"Каналы и киношные улицы", mood:"Медленный центр: мосты, отражения, кофе и прогулка без гонки." },
-    { id:"d18", label:"18 апр · Utrecht", title:"Утрехт", mood:"Тише, уютнее, очень живой город — как европейский фильм." },
-    { id:"d19", label:"19 апр · Skillet", title:"День концерта", mood:"Лёгкий день → хороший ужин → концерт → спокойное возвращение." },
-    { id:"d20", label:"20 апр · Возврат", title:"Сборы и аэропорт", mood:"Без паники: время, транспорт и маленькая финальная прогулка." }
-  ];
-
-  // Карточки по дням — мы будем наполнять постепенно
-  const cardsByDay = {
-    d15: [
-      card("✨ Вечер после заселения", "Ничего героического. Короткая прогулка рядом с отелем, тёплый чай и ранний сон — чтобы завтра город был «вашим».",
-        [
-          linkBtn("📍 Район около отеля (карта)", "https://www.google.com/maps/search/?api=1&query=Holiday%20Inn%20Express%20Amsterdam%20Arena%20Towers%20area", true),
-        ],
-        ["Совет: не планируй центр в этот день", "Одежда: ветер в апреле — нормально"]
-      ),
-    ],
-    d16: [
-      card("🌷 Keukenhof — главный план", "Мы добавим сюда: как добраться, сколько времени, лучшие зоны для фото, где перекусить и как избежать толпы.",
-        [
-          linkBtn("📍 Keukenhof на карте", "https://www.google.com/maps/search/?api=1&query=Keukenhof", true),
-        ],
-        ["Возьми дождевик", "Лучшее время: утро"]
-      ),
-    ],
-    d17: [
-      card("🛶 Каналы и прогулка", "Добавим 2 маршрута: «открыточный» и «без туристов», плюс лучшие точки на закат.",
-        [
-          linkBtn("📍 Amsterdam centrum", "https://www.google.com/maps/search/?api=1&query=Amsterdam%20centrum", true),
-        ],
-        ["Кофе-паузы = меньше усталости", "Один район за раз"]
-      ),
-    ],
-    d18: [
-      card("🚆 Утрехт одним днём", "Добавим: как доехать, идеальный маршрут, где поесть и что посмотреть без перегруза.",
-        [
-          linkBtn("📍 Utrecht Centraal", "https://www.google.com/maps/search/?api=1&query=Utrecht%20Centraal", true),
-        ],
-        ["Поезд обычно самый удобный", "Город компактный и приятный"]
-      ),
-    ],
-    d19: [
-      card("🎸 Skillet — день концерта", "Добавим площадку, время, как вернуться ночью и план «если устала/дождь».",
-        [],
-        ["Днём — лёгкая программа", "Ужин заранее (чтобы не искать в толпе)"]
-      ),
-    ],
-    d20: [
-      card("🧳 Возвращение", "Добавим тайминг сборов, дорогу в аэропорт и чек-лист перед выходом.",
-        [
-          linkBtn("✈️ Маршрут в Schiphol", "https://www.google.com/maps/dir/?api=1&origin=Holiday%20Inn%20Express%20Amsterdam%20Arena%20Towers&destination=Amsterdam%20Airport%20Schiphol&travelmode=transit", true),
-        ],
-        ["Проверить документы", "Проверить заряд/пауэрбанк"]
-      ),
-    ],
-  };
-
-  function esc(s){return (s||"").replace(/[&<>"]/g,m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[m]));}
-
-  function linkBtn(label, href, primary=false){
-    return `<a class="btn ${primary?'primary':''}" target="_blank" rel="noopener" href="${esc(href)}">${esc(label)}</a>`;
-  }
-
-  function card(title, text, buttons=[], pills=[]){
-    const btns = buttons.length ? `<div class="btns">${buttons.join("")}</div>` : "";
-    const meta = pills.length ? `<div class="meta">${pills.map(p=>`<span class="pill">${esc(p)}</span>`).join("")}</div>` : "";
-    return `
-      <div class="card js-card">
-        <h2>${esc(title)}</h2>
-        <div class="txt">${esc(text)}</div>
-        ${btns}
-        ${meta}
-      </div>
-    `;
-  }
-
-  const tabsEl = document.getElementById("tabs");
-  const dayContent = document.getElementById("dayContent");
-  const q = document.getElementById("q");
-  const count = document.getElementById("count");
-  let activeDay = days[0].id;
-
-  function renderTabs(){
-    tabsEl.innerHTML = days.map(d => `
-      <button class="tab ${d.id===activeDay?'active':''}" data-day="${d.id}">
-        ${esc(d.label)}
-      </button>
-    `).join("");
-    tabsEl.querySelectorAll(".tab").forEach(btn=>{
-      btn.addEventListener("click", ()=>{ activeDay = btn.dataset.day; render(); window.scrollTo({top:0,behavior:"smooth"}); });
-    });
-  }
-
-  function renderDay(){
-    const d = days.find(x=>x.id===activeDay);
-    const head = `
-      <div class="card js-card">
-        <h2>🗓 ${esc(d.label)} · ${esc(d.title)}</h2>
-        <div class="txt">${esc(d.mood)}</div>
-        <details>
-          <summary>Мой фокус дня</summary>
+        <div class="card" id="transport">
+          <h2>🚆 Транспорт (быстро и без стресса)</h2>
           <ul class="list">
-            <li>1–2 главных события — остальное опционально.</li>
-            <li>Перерывы на кофе/тепло — это часть плана, не “потеря времени”.</li>
-            <li>Если дождь — у нас будет план B (добавим).</li>
+            <li><b>Поезда NS</b> — Schiphol и Утрехт.</li>
+            <li><b>Метро/трамвай</b> — центр.</li>
+            <li>Часто работает <b>OVpay</b>: банковская карта на входе/выходе.</li>
           </ul>
-        </details>
+          <div class="btns">
+            <a class="btn" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Amsterdam%20Bijlmer%20ArenA%20station">
+              🚉 Bijlmer ArenA
+            </a>
+            <a class="btn" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/search/?api=1&query=Amsterdam%20Centraal%20Station">
+              🚆 Amsterdam Centraal
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>🗓 План по дням</h2>
+          <div class="txt">Нажимай на день сверху — откроется “страница дня”. Ссылку можно отправить себе: например <b>#d16</b>.</div>
+        </div>
+      </section>
+
+      <!-- DAY PAGE -->
+      <section id="daySection" class="hidden">
+        <div class="backRow">
+          <a class="back" href="#home">← На главную</a>
+          <div class="pageHint" id="pageHint">Страница дня</div>
+        </div>
+        <div class="grid" id="dayContent"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="foot">
+    <div class="footin">
+      <div class="search">
+        🔎 <input id="q" placeholder="Поиск по карточкам дня: Keukenhof, ужин, музей..." />
       </div>
-    `;
-    const cards = (cardsByDay[activeDay] || []).join("");
-    dayContent.innerHTML = head + cards;
-  }
+      <div class="badge" id="count">0 карточек</div>
+    </div>
+  </div>
 
-  function applySearch(){
-    const term = (q.value||"").trim().toLowerCase();
-    const cards = document.querySelectorAll(".js-card");
-    let shown = 0;
-    cards.forEach(c=>{
-      const ok = !term || c.textContent.toLowerCase().includes(term);
-      c.classList.toggle("hidden", !ok);
-      if(ok) shown++;
-    });
-    count.textContent = `${shown} карточек`;
-  }
+  <script>
+    const days = [
+      { id:"d15", label:"15 апр", title:"Прилет и мягкий старт", mood:"Спокойно заселиться, выдохнуть и почувствовать город." },
+      { id:"d16", label:"16 апр", title:"Keukenhof", mood:"Весна как открытка: тюльпаны, ветер, фотогеничность на каждом шагу." },
+      { id:"d17", label:"17 апр", title:"Центр", mood:"Медленный центр: мосты, отражения, кофе и прогулка без гонки." },
+      { id:"d18", label:"18 апр", title:"Утрехт", mood:"Тише, уютнее и очень живой город — как европейский фильм." },
+      { id:"d19", label:"19 апр", title:"Skillet", mood:"Лёгкий день → хороший ужин → концерт → спокойное возвращение." },
+      { id:"d20", label:"20 апр", title:"Возврат", mood:"Без паники: время, транспорт и маленькая финальная прогулка." }
+    ];
 
-  function render(){
-    renderTabs();
-    renderDay();
-    applySearch();
-  }
+    const cardsByDay = {
+      d15: [
+        card("✨ Вечер после заселения",
+          "Ничего героического. Короткая прогулка рядом, тёплый чай и ранний сон — чтобы завтра город был «вашим».",
+          [ linkBtn("📍 Район около отеля (карта)", "https://www.google.com/maps/search/?api=1&query=Holiday%20Inn%20Express%20Amsterdam%20Arena%20Towers%20area", true) ],
+          ["Совет: не планируй центр в этот день", "Апрель = ветер, это нормально"]
+        ),
+      ],
+      d16: [
+        card("🌷 Keukenhof — главный план",
+          "Добавим: как добраться, тайминг, лучшие зоны для фото, перекус и план против толпы.",
+          [ linkBtn("📍 Keukenhof на карте", "https://www.google.com/maps/search/?api=1&query=Keukenhof", true) ],
+          ["Возьми дождевик", "Лучше ехать утром"]
+        ),
+      ],
+      d17: [
+        card("🛶 Каналы и прогулка",
+          "Добавим 2 маршрута: «открыточный» и «без туристов», плюс точки на закат.",
+          [ linkBtn("📍 Amsterdam centrum", "https://www.google.com/maps/search/?api=1&query=Amsterdam%20centrum", true) ],
+          ["Один район за раз", "Кофе-паузы = меньше усталости"]
+        ),
+      ],
+      d18: [
+        card("🚆 Утрехт одним днём",
+          "Добавим: как доехать, идеальный маршрут, где поесть и что посмотреть без перегруза.",
+          [ linkBtn("📍 Utrecht Centraal", "https://www.google.com/maps/search/?api=1&query=Utrecht%20Centraal", true) ],
+          ["Поезд чаще всего удобнее всего", "Город компактный"]
+        ),
+      ],
+      d19: [
+        card("🎸 Skillet — день концерта",
+          "Добавим: площадку, время, как вернуться ночью и план «если дождь/устала».",
+          [],
+          ["Днём — лёгкая программа", "Ужин заранее"]
+        ),
+      ],
+      d20: [
+        card("🧳 Возвращение",
+          "Добавим тайминг сборов, дорогу в аэропорт и чек-лист перед выходом.",
+          [ linkBtn("✈️ Маршрут в Schiphol", "https://www.google.com/maps/dir/?api=1&origin=Holiday%20Inn%20Express%20Amsterdam%20Arena%20Towers&destination=Amsterdam%20Airport%20Schiphol&travelmode=transit", true) ],
+          ["Документы", "Заряд/пауэрбанк", "Вода/перекус"]
+        ),
+      ],
+    };
 
-  q.addEventListener("input", applySearch);
+    function esc(s){return (s||"").replace(/[&<>"]/g,m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[m]));}
+    function linkBtn(label, href, primary=false){
+      return `<a class="btn ${primary?'primary':''}" target="_blank" rel="noopener" href="${esc(href)}">${esc(label)}</a>`;
+    }
+    function card(title, text, buttons=[], pills=[]){
+      const btns = buttons.length ? `<div class="btns">${buttons.join("")}</div>` : "";
+      const meta = pills.length ? `<div class="meta">${pills.map(p=>`<span class="pill">${esc(p)}</span>`).join("")}</div>` : "";
+      return `
+        <div class="card js-card">
+          <h2>${esc(title)}</h2>
+          <div class="txt">${esc(text)}</div>
+          ${btns}
+          ${meta}
+        </div>
+      `;
+    }
 
-  // First render
-  render();
-</script>
+    const tabsEl = document.getElementById("tabs");
+    const homeSection = document.getElementById("homeSection");
+    const daySection = document.getElementById("daySection");
+    const dayContent = document.getElementById("dayContent");
+    const pageHint = document.getElementById("pageHint");
+
+    const q = document.getElementById("q");
+    const count = document.getElementById("count");
+
+    function getRoute(){
+      const h = (location.hash || "#home").replace("#","");
+      if(h === "home" || h === "") return { page:"home" };
+      const isDay = days.some(d=>d.id===h);
+      if(isDay) return { page:"day", dayId:h };
+      // якоря внутри home (#hotel/#arrival/#transport)
+      return { page:"home", anchor:h };
+    }
+
+    function renderTabs(activeDayId){
+      tabsEl.innerHTML = days.map(d => `
+        <a class="tab ${d.id===activeDayId?'active':''}" href="#${esc(d.id)}">
+          ${esc(d.label)} · ${esc(d.title)}
+        </a>
+      `).join("");
+    }
+
+    function renderDay(dayId){
+      const d = days.find(x=>x.id===dayId);
+      const head = `
+        <div class="card js-card">
+          <h2>🗓 ${esc(d.label)} · ${esc(d.title)}</h2>
+          <div class="txt">${esc(d.mood)}</div>
+          <details>
+            <summary>Мой фокус дня</summary>
+            <ul class="list">
+              <li>1–2 главных события — остальное опционально.</li>
+              <li>Перерывы на тепло/кофе — часть плана.</li>
+              <li>Если дождь — сделаем план B (добавим).</li>
+            </ul>
+          </details>
+        </div>
+      `;
+      const cards = (cardsByDay[dayId] || []).join("");
+      dayContent.innerHTML = head + cards;
+      pageHint.textContent = `Открыто: #${dayId} (можно отправить себе ссылку)`;
+    }
+
+    function applySearch(){
+      const term = (q.value||"").trim().toLowerCase();
+      const cards = document.querySelectorAll("#daySection .js-card");
+      let shown = 0;
+      cards.forEach(c=>{
+        const ok = !term || c.textContent.toLowerCase().includes(term);
+        c.classList.toggle("hidden", !ok);
+        if(ok) shown++;
+      });
+      count.textContent = `${shown} карточек`;
+    }
+
+    function render(){
+      const r = getRoute();
+
+      if(r.page === "day"){
+        homeSection.classList.add("hidden");
+        daySection.classList.remove("hidden");
+        renderTabs(r.dayId);
+        renderDay(r.dayId);
+        q.placeholder = "Поиск по карточкам дня…";
+        q.value = "";
+        applySearch();
+        window.scrollTo({top:0, behavior:"instant"});
+        return;
+      }
+
+      // home
+      daySection.classList.add("hidden");
+      homeSection.classList.remove("hidden");
+      renderTabs(null);
+      q.placeholder = "Поиск по путеводителю (в режиме дня ищет по дню)…";
+      count.textContent = "—";
+
+      // если пришли на якорь типа #hotel
+      if(r.anchor){
+        const el = document.getElementById(r.anchor);
+        if(el) setTimeout(()=>el.scrollIntoView({behavior:"smooth", block:"start"}), 50);
+      }
+    }
+
+    window.addEventListener("hashchange", render);
+    q.addEventListener("input", applySearch);
+
+    render();
+  </script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js").catch(() => {});
-    });
-  }
-</script>
