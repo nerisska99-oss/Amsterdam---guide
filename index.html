@@ -697,9 +697,14 @@
 
     function renderDay(dayId){
       const d = days.find(x=>x.id===dayId);
-      const head = `
-        <div class="card js-card">
-          <h2>🗓 ${esc(d.label)} · ${esc(d.title)}</h2>
+      const imgSrc = dayImages[dayId];
+const hero = imgSrc
+  ? `<img class="heroImg" src="${esc(imgSrc)}" alt="">`
+  : `<div class="heroFallback"></div>`;
+const head = `
+  <div class="card js-card">
+    ${hero}
+    <h2>🗓 ${esc(d.label)} · ${esc(d.title)}</h2>
           <div class="txt">${esc(d.mood)}</div>
           <details>
             <summary>Мой фокус дня</summary>
