@@ -230,6 +230,121 @@ body{
 
 /* Важно для мобилки: чтобы клавиатура не делала мелкий текст */
 input{ font-size: 16px !important; }
+    /* ====== BEAUTY PACK: контрастные, компактные, чётко отделённые карточки ====== */
+:root{
+  --bg:#f4f6fb;
+  --card:#ffffff;
+  --card2:#fbfcff;
+  --text:#10142a;
+  --muted:#525a78;
+  --line:rgba(16,20,42,.10);
+  --line2:rgba(16,20,42,.14);
+
+  --accent:#f9be00;
+  --accent2:#0E0871;
+
+  --shadow: 0 14px 34px rgba(16,20,42,.10);
+  --shadow2: 0 10px 22px rgba(16,20,42,.08);
+
+  --radius:18px;
+  --radius2:14px;
+}
+
+/* фон чуть “дороже” */
+body{
+  background:
+    radial-gradient(700px 360px at 12% 0%, rgba(249,190,0,.26), transparent 60%),
+    radial-gradient(650px 340px at 92% 6%, rgba(14,8,113,.12), transparent 60%),
+    linear-gradient(180deg, #f6f7fd, #f2f4fb 55%, #f4f6fb);
+}
+
+/* сетка компактнее */
+.grid{ gap:10px !important; }
+
+/* карточка — с чёткой рамкой + мягкой тенью + верхним “бортиком” */
+.card{
+  background: linear-gradient(180deg, var(--card), var(--card2));
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute; left:0; top:0; right:0; height:3px;
+  background: linear-gradient(90deg, rgba(14,8,113,.65), rgba(249,190,0,.75));
+  opacity:.55;
+}
+
+/* компактные заголовки */
+.card h2{
+  font-weight: 800;
+  letter-spacing: .1px;
+  margin: 0 0 8px;
+}
+
+/* текст спокойнее и читабельнее */
+.txt, .list{
+  color: var(--muted);
+}
+
+/* “разделители” внутри карточек */
+.hr{
+  height:1px; background: var(--line);
+  margin: 12px 0;
+}
+
+/* бейджи и пиллы — контрастнее */
+.pill, .badge{
+  background: rgba(16,20,42,.04) !important;
+  border: 1px solid rgba(16,20,42,.10) !important;
+}
+
+/* кнопки — более “приложение”, компактно */
+.btn{
+  background: rgba(16,20,42,.04);
+  border: 1px solid rgba(16,20,42,.10);
+  box-shadow: var(--shadow2);
+}
+
+.btn.primary{
+  background: rgba(249,190,0,.40) !important;
+  border-color: rgba(249,190,0,.70) !important;
+}
+
+/* вкладки-дни — чётче активная */
+.tab{
+  border: 1px solid rgba(16,20,42,.12) !important;
+  background: rgba(255,255,255,.85) !important;
+}
+.tab.active{
+  background: linear-gradient(180deg, rgba(14,8,113,.12), rgba(255,255,255,.92)) !important;
+  border-color: rgba(14,8,113,.25) !important;
+}
+
+/* details красивее */
+details{
+  background: rgba(16,20,42,.03) !important;
+  border: 1px solid rgba(16,20,42,.10) !important;
+}
+summary{ font-weight: 700; }
+
+/* маленькие “метки” типа INFO / TODO / IMPORTANT */
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:.9rem;
+  border:1px solid rgba(16,20,42,.10);
+  background: rgba(255,255,255,.75);
+  box-shadow: 0 8px 18px rgba(16,20,42,.06);
+}
+.tag b{color: var(--accent2)}
   </style>
 </head>
 
