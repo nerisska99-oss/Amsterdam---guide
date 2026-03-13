@@ -862,7 +862,18 @@
         </div>
       `;
     }
-
+    function richCard(title, html, buttons=[], pills=[]){
+  const btns = buttons.length ? `<div class="btns">${buttons.join("")}</div>` : "";
+  const meta = pills.length ? `<div class="meta">${pills.map(p=>`<span class="pill">${esc(p)}</span>`).join("")}</div>` : "";
+  return `
+    <div class="card js-card">
+      <h2>${esc(title)}</h2>
+      <div class="txt">${html}</div>
+      ${btns}
+      ${meta}
+    </div>
+  `;
+}
     function notesCard(dayId){
       const key = `ams_notes_${dayId}`;
       const saved = localStorage.getItem(key) || "";
@@ -1013,5 +1024,6 @@ const head = `
       });
     }
   </script>
+  
 </body>
 </html>
