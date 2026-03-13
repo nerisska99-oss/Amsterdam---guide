@@ -602,7 +602,148 @@
     ],
     ["Удобно держать как навигационную страницу", "Подходит для использования на телефоне"]
   ),
+       
+
+  card("🌷 Keukenhof — главный день тюльпанов",
+    "Билет уже куплен на 16 апреля, 10:30. Сегодня: удобный маршрут от отеля, парк, мельница, фототочки, лёгкий перекус и поля тюльпанов вокруг.",
+    [
+      linkBtn("📍 Keukenhof на карте", "https://maps.google.com/?q=Keukenhof+Stationsweg+166A+2161+AM+Lisse", true),
+      linkBtn("🎟 Билеты", "https://tickets.keukenhof.nl/en-US/tickets", false)
+    ],
+    ["2 взрослых", "Вход 10:30", "Лучше приехать к 10:15"]
+  ),
+
+  richCard("🗺 Мини-Apple Travel Guide · Keukenhof",
+    `
+      <iframe
+        class="guideMap"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Keukenhof+Stationsweg+166A+2161+AM+Lisse&output=embed">
+      </iframe>
+
+      <div class="guideGrid">
+        <div class="guideBox">
+          <b>🚇 Маршрут от отеля</b>
+          <ul class="guideList">
+            <li>Holiday Inn Express Arena Towers</li>
+            <li>пешком до Bijlmer ArenA</li>
+            <li>метро до Amsterdam RAI</li>
+            <li>KeukenhofBuzz до входа в парк</li>
+          </ul>
+          <div class="routeLine">
+            <span class="routeTag">Отель</span>
+            <span class="routeTag">Bijlmer ArenA</span>
+            <span class="routeTag">Amsterdam RAI</span>
+            <span class="routeTag">Keukenhof</span>
+          </div>
+        </div>
+
+        <div class="guideBox">
+          <b>🌬 Точка мельницы</b>
+          <ul class="guideList">
+            <li>главная обзорная точка дня</li>
+            <li>вид на поля тюльпанов</li>
+            <li>одна из лучших локаций для фото</li>
+          </ul>
+        </div>
+
+        <div class="guideBox">
+          <b>📸 Лучшие фотолокации</b>
+          <ul class="guideList">
+            <li>мельница + поля</li>
+            <li>Blue River / цветочные дорожки</li>
+            <li>мостики и каналы</li>
+            <li>аллеи под деревьями</li>
+            <li>павильоны с крупными тюльпанами</li>
+          </ul>
+        </div>
+
+        <div class="guideBox">
+          <b>☕ Кафе и перекус</b>
+          <ul class="guideList">
+            <li>кофе и лёгкий перекус в парке</li>
+            <li>лучше не делать тяжёлый обед</li>
+            <li>основной акцент оставить на прогулку и фото</li>
+          </ul>
+        </div>
+
+        <div class="guideBox">
+          <b>🚲 Поля тюльпанов вокруг</b>
+          <ul class="guideList">
+            <li>после парка — Lisse и дороги вдоль полей</li>
+            <li>если будет хорошая погода — велосипеды</li>
+            <li>если хочется мягче — прогулка и короткие остановки</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="guideNote">
+        💛 Лучший ритм дня: сначала парк и главные зоны, потом мельница, потом лёгкий перекус, и только после этого — поля вокруг Lisse.
+      </div>
+    `,
+    [
+      linkBtn("📍 Открыть Keukenhof", "https://maps.google.com/?q=Keukenhof+Stationsweg+166A+2161+AM+Lisse", true),
+      linkBtn("📍 Мельница", "https://www.google.com/maps/search/?api=1&query=Keukenhof+Windmill", false),
+      linkBtn("📍 Lisse", "https://www.google.com/maps/search/?api=1&query=Lisse+Netherlands", false)
+    ],
+    ["Карта внутри карточки", "Мельница", "Фото", "Кафе", "Поля"]
+  ),
+
+  card("⏰ Идеальный тайминг дня",
+    "08:15 — выход из отеля. 08:25–08:30 — Bijlmer ArenA. Около 09:15 — Amsterdam RAI. Около 10:15 — прибытие в Keukenhof. 10:30 — вход. До 13:00 — главные зоны парка. Потом перекус, мельница и внешняя прогулка к полям.",
+    [],
+    ["Ранний ритм = меньше толп", "Не перегружать день"]
+  ),
+
+  card("🗺 Маршрут по парку",
+    "Лучший порядок: Willem-Alexander Pavilion → Oranje Nassau Pavilion → цветочные дорожки → Blue River → мостики и вода → мельница → спокойные зоны в финале.",
+    [
+      linkBtn("📍 Карта парка", "https://maps.google.com/?q=Keukenhof+Lisse", true)
+    ],
+    ["Сначала самые популярные точки", "Потом уже медленная прогулка"]
+  ),
+
+  card("🌬 Мельница Keukenhof",
+    "Мельница — обязательная точка дня. Здесь самые открыточные виды: тюльпановые поля, воздух, простор и классический голландский пейзаж.",
+    [
+      linkBtn("📍 Открыть мельницу", "https://www.google.com/maps/search/?api=1&query=Keukenhof+Windmill", true)
+    ],
+    ["Топ-фото", "Лучший вид на поля"]
+  ),
+
+  card("📸 Фото-план",
+    "Сначала снимайте популярные зоны внутри парка, пока вы свежие. После этого — мельница и поля вокруг. Самые атмосферные кадры обычно получаются на мостиках, возле воды и на открытых дорожках у полей.",
+    [],
+    ["Лучший свет утром", "Поля — после парка", "Мостики добавляют глубину фото"]
+  ),
+
+  card("☕ Перекус и пауза",
+    "Лучший вариант — лёгкий кофе, чай или перекус внутри парка. Большой обед лучше не делать: он съест силы и настроение второй половины дня.",
+    [
+      linkBtn("☕ Jacoba's Kitchen", "https://www.google.com/maps/search/?api=1&query=Jacoba%27s+Kitchen+Keukenhof", true),
+      linkBtn("🥪 Keukenhof Restaurant", "https://www.google.com/maps/search/?api=1&query=Keukenhof+Restaurant", false)
+    ],
+    ["Лучше до 13:00", "Лёгкий формат"]
+  ),
+
+  card("🚲 Поля тюльпанов вокруг Lisse",
+    "После основной прогулки можно посмотреть дороги вокруг Lisse и ближайшие поля тюльпанов. Это уже не “официальный парк”, а настоящая открыточная Голландия.",
+    [
+      linkBtn("📍 Lisse", "https://www.google.com/maps/search/?api=1&query=Lisse+Netherlands", true),
+      linkBtn("📍 Flower fields route", "https://www.google.com/maps/search/?api=1&query=Achterweg-Zuid+Lisse", false)
+    ],
+    ["Если хорошая погода — это must", "Самые голландские кадры"]
+  ),
+
+  card("💛 Мой идеальный сценарий",
+    "Я бы сделала так: ранний выезд → спокойный вход → главные павильоны → цветочные дорожки → мельница → кофе/перекус → короткая прогулка к полям вокруг Lisse → возвращение без спешки. Так день получится красивым и не утомительным.",
+    [],
+    ["Красиво", "Спокойно", "Без перегруза"]
+  ),
+
 ],
+
      d17: [
   card("🗺 Маршрут дня: каналы + атмосфера",
     "Bijlmer → Centraal → Brouwersgracht → Jordaan → Westerkerk/Prinsengracht → 9 Straatjes → Bloemenmarkt → Begijnhof. Темп: медленно, красиво, без гонки.",
