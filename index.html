@@ -1047,7 +1047,226 @@
         ),
       ],
     };
+    /* ========= Utrecht map + animations ========= */
+const utrechtMapData = {
+  title: "Утрехт одним днём",
+  center: [52.0907, 5.1210],
+  zoom: 14,
+  points: [
+    {
+      id: "station",
+      title: "Utrecht Centraal",
+      coords: [52.089444, 5.110278],
+      text: "Главная станция города. Удобная стартовая точка для прогулки.",
+      url: "https://www.google.com/maps/search/?api=1&query=Utrecht%20Centraal"
+    },
+    {
+      id: "oudegracht",
+      title: "Oudegracht",
+      coords: [52.0907, 5.1214],
+      text: "Сердце Утрехта: каналы, мостики, террасы у воды.",
+      url: "https://www.google.com/maps/search/?api=1&query=Oudegracht%20Utrecht"
+    },
+    {
+      id: "coffee",
+      title: "30ML Coffee Roasters",
+      coords: [52.0933, 5.1178],
+      text: "Отличная остановка на кофе и поздний завтрак.",
+      url: "https://www.google.com/maps/search/?api=1&query=30ML%20Coffee%20Roasters%20Utrecht"
+    },
+    {
+      id: "dom",
+      title: "Dom Tower",
+      coords: [52.0906, 5.1212],
+      text: "Главный символ Утрехта и одна из лучших фото-точек.",
+      url: "https://www.google.com/maps/search/?api=1&query=Dom%20Tower%20Utrecht"
+    },
+    {
+      id: "pandhof",
+      title: "Pandhof",
+      coords: [52.0899, 5.1218],
+      text: "Тихий внутренний сад рядом с Domplein.",
+      url: "https://www.google.com/maps/search/?api=1&query=Pandhof%20Utrecht"
+    },
+    {
+      id: "lunch",
+      title: "Graaf Floris Café",
+      coords: [52.0902, 5.1219],
+      text: "Хорошее место для обеда у воды.",
+      url: "https://www.google.com/maps/search/?api=1&query=Graaf%20Floris%20Cafe%20Utrecht"
+    },
+    {
+      id: "neude",
+      title: "Neude",
+      coords: [52.0930, 5.1171],
+      text: "Центральная площадь и приятная часть прогулки.",
+      url: "https://www.google.com/maps/search/?api=1&query=Neude%20Utrecht"
+    }
+  ]
+};
 
+function ensureLeafletAssets(cb){
+  const cssId = "leaflet-css-cdn";
+  const jsId  = "leaflet-js-cdn";
+
+  function loadCss(next){
+    if(document.getElementById(cssId)) return next();
+    const link = document.createElement("link");
+    link.id = cssId;
+    link.rel = "stylesheet";
+    link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+    link.onload = next;
+    document.head.appendChild(link);
+  }
+
+  function loadJs(next){
+    if(window.L) return next();
+
+    const existing = document.getElementById(jsId);
+    if(existing){
+      const t = setInterval(() => {
+        if(window.L){
+          clearInterval(t);
+          next();
+        }
+      }, 80);
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = jsId;
+    script.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+    script.onload = next;
+    document.body.appendChild(script);
+  }
+
+  loadCss(() => loadJs(cb));
+}
+
+function buildUtrechtMapHtml(){
+  return `
+    <div class="tg-map-card reveal-on-scroll">
+      <div class="tg-map-head">
+        <div class="tg-map-title">🗺 Интерактивная карта Utrecht</div>
+        <div class="tg-map-sub">Нажимай на точки и открывай места в Google Maps</div>
+      </div>
+      <div id="utrechtMapBox" class="tg-map-box"></div>
+      <div class="tg-map-actions">
+        <a class="chip primary" href="https://www.google.com/maps/dir/?api=1&origin=Amsterdam%20Centraal&destination=Oudegracht%20Utrecht&travelmode=walking&waypoints=Utrecht%20Centraal|30ML%20Coffee%20Roasters%20Utrecht|Dom%20Tower%20Utrecht|Pandhof%20Utrecht|Graaf%20Floris%20Cafe%20Utrecht|Neude%20Utrecht" target="_blank">🗺 Открыть маршрут</a>
+      </div>
+    </div>
+  `;
+}
+
+function initUtrechtMapIfNeeded(){
+  const mapBox = document.getElementById("utrechtMapBox");
+  if(!mapBox || mapBox.dataset.ready === "1") return;
+
+  ensureLeafletAssets(() => {
+    if(!window.L) return;
+
+    const map = L.map("utrechtMapBox", {
+      zoomControl: true,
+      scrollWheelZoom: false
+    }).setView(utrechtMapData.center, utrechtMapData.zoom);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap contributors"
+    }).addTo(map);
+
+    const latlngs = [];
+
+    utrechtMapData.points.forEach((p, i) => {
+      latlngs.push(p.coords);
+
+      const icon = L.divIcon({
+        className: "custom-utrecht-pin",
+        html: `<div class="${i === 0 ? "pin pin-accent" : "pin"}"></div>`,
+        iconSize: [20, 20],
+        iconAnchor: [10, 10]
+      });
+
+      L.marker(p.coords, { icon })
+        .addTo(map)
+        .bindPopup(`
+          <div class="tg-popup">
+            <strong>${p.title}</strong><br>
+            <span>${p.text}</span><br>
+            <a href="${p.url}" target="_blank">Открыть в Google Maps</a>
+          </div>
+        `);
+    });
+
+    if(latlngs.length > 1){
+      const line = L.polyline(latlngs, {
+        color: "#0E0871",
+        weight: 4,
+        opacity: 0.85,
+        dashArray: "10 10"
+      }).addTo(map);
+
+      map.fitBounds(line.getBounds(), { padding: [25, 25] });
+    }
+
+    mapBox.dataset.ready = "1";
+    setTimeout(() => map.invalidateSize(), 250);
+  });
+}
+
+function initRevealAnimations(){
+  const items = document.querySelectorAll(".reveal-on-scroll");
+  if(!items.length) return;
+
+  if(!("IntersectionObserver" in window)){
+    items.forEach(el => el.classList.add("revealed"));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("revealed");
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  items.forEach((el, i) => {
+    el.style.transitionDelay = (i * 50) + "ms";
+    io.observe(el);
+  });
+}
+
+function enhanceUtrechtDay(){
+  const activeDay = document.querySelector('[data-day="d18"], #d18, .day-d18');
+  const root = activeDay || document.body;
+
+  if(document.getElementById("utrechtMapBox")) return;
+
+  const cards = Array.from(root.querySelectorAll(".card, .place-card, .day-card, .item-card"));
+  if(!cards.length) return;
+
+  const firstUtrechtCard = cards.find(card =>
+    /утрехт/i.test(card.textContent || "")
+  );
+
+  if(!firstUtrechtCard) return;
+
+  const wrap = document.createElement("div");
+  wrap.innerHTML = buildUtrechtMapHtml();
+  firstUtrechtCard.insertAdjacentElement("afterend", wrap.firstElementChild);
+
+  cards.forEach(card => card.classList.add("reveal-on-scroll"));
+
+  initRevealAnimations();
+  initUtrechtMapIfNeeded();
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  initRevealAnimations();
+  setTimeout(enhanceUtrechtDay, 300);
+});
+/* ========= /Utrecht map + animations ========= */
     function esc(s){return (s||"").replace(/[&<>"]/g,m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[m]));}
 
     function linkBtn(label, href, primary=false){
