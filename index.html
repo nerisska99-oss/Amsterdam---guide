@@ -1125,519 +1125,125 @@
   )
 ],
      d19: [
-  card(
-    "🎸 День 19 — A’DAM, Noord и концерт Skillet",
-    "Лёгкий и красивый день: панорама Амстердама, паром через IJ, кофе в Noord, арт-квартал NDSM, немного центра и вечером концерт в AFAS Live.",
+  card("🎸 Skillet — день концерта",
+    "Лёгкий и красивый день: утром выезд из отеля, потом Amsterdam Centraal, бесплатный паром на Noord, A’DAM Lookout, кофе и прогулка по NDSM, немного центра и вечером концерт в AFAS Live.",
     [
-      {
-        type: "chips",
-        items: ["19 апреля", "Лёгкий день", "Фото-точки", "AFAS Live вечером"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "🏨 Отель",
-            href: "https://maps.google.com/?q=Holiday+Inn+Express+Amsterdam+Arena+Towers"
-          },
-          {
-            label: "🎸 AFAS Live",
-            href: "https://maps.google.com/?q=AFAS+Live"
-          }
-        ]
-      },
-      "🏨 Старт: Holiday Inn Express Amsterdam – Arena Towers",
-      "🚆 Поезд: Bijlmer ArenA → Amsterdam Centraal",
-      "⛴ Бесплатный паром Buiksloterweg",
-      "🌇 A’DAM Lookout",
-      "☕ Кофе / поздний завтрак в Noord",
-      "🎨 NDSM Wharf + STRAAT Museum",
-      "🏙 Спокойная прогулка по центру",
-      "🎸 Вечером: концерт Skillet в AFAS Live"
+      linkBtn("🏨 Отель", "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Express+Amsterdam+Arena+Towers", true),
+      linkBtn("🎸 AFAS Live", "https://www.google.com/maps/search/?api=1&query=AFAS+Live+Amsterdam", false)
     ],
-    [
-      "Не перегружай день — концерт главный",
-      "Лучшие фото: паром, A’DAM, NDSM и Jordaan",
-      "Лучше выехать утром, чтобы весь день прошёл без спешки"
-    ]
+    ["Главное событие дня — концерт", "День должен быть лёгким", "Лучше без перегруза"]
   ),
 
-  card(
-    "🏨 08:45 — Выход из отеля",
-    "Спокойно выходим из отеля и идём к станции Bijlmer ArenA. Это очень короткий и простой участок.",
+  card("🏨 08:45 — Выход из отеля",
+    "Спокойно выходите из Holiday Inn Express Amsterdam – Arena Towers и идёте пешком к станции Bijlmer ArenA. Это короткий и простой участок.",
     [
-      {
-        type: "chips",
-        items: ["Пешком 5–7 минут", "Простой участок", "Старт без спешки"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "🏨 Открыть отель",
-            href: "https://maps.google.com/?q=Holiday+Inn+Express+Amsterdam+Arena+Towers"
-          },
-          {
-            label: "🚆 Открыть станцию",
-            href: "https://maps.google.com/?q=Bijlmer+ArenA+station"
-          },
-          {
-            label: "🗺 Маршрут пешком",
-            href: "https://www.google.com/maps/dir/Holiday+Inn+Express+Amsterdam+Arena+Towers/Bijlmer+ArenA+station"
-          }
-        ]
-      },
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?amsterdam,hotel",
-            alt: "Отель в Амстердаме"
-          }
-        ]
-      }
+      linkBtn("🏨 Открыть отель", "https://www.google.com/maps/search/?api=1&query=Holiday+Inn+Express+Amsterdam+Arena+Towers", true),
+      linkBtn("🚆 Открыть Bijlmer ArenA", "https://www.google.com/maps/search/?api=1&query=Bijlmer+ArenA+station", false),
+      linkBtn("🗺 Пеший маршрут", "https://www.google.com/maps/dir/Holiday+Inn+Express+Amsterdam+Arena+Towers/Bijlmer+ArenA+station", false)
     ],
-    [
-      "Ориентир — арена и железнодорожные пути сверху",
-      "Выходить слишком рано не нужно: путь короткий и удобный"
-    ]
+    ["Пешком 5–7 минут", "Ориентир — арена и железнодорожные пути сверху", "Очень простой старт"]
   ),
 
-  card(
-    "🚆 09:00–09:25 — Поезд в центр",
-    "От Bijlmer ArenA едем до Amsterdam Centraal. Это самый удобный и быстрый способ добраться к парому и A’DAM.",
+  card("🚆 09:00–09:25 — Поезд в центр",
+    "От Bijlmer ArenA едете на Amsterdam Centraal. Это самый удобный способ быстро добраться к парому и A’DAM.",
     [
-      {
-        type: "chips",
-        items: ["Поезд ~20 минут", "Прямо в центр", "Удобный маршрут"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "🚆 Amsterdam Centraal",
-            href: "https://maps.google.com/?q=Amsterdam+Centraal"
-          },
-          {
-            label: "📍 Bijlmer ArenA",
-            href: "https://maps.google.com/?q=Bijlmer+ArenA+station"
-          }
-        ]
-      },
-      "Садитесь на поезд до Amsterdam Centraal",
-      "На вокзале лучше держаться ближе к выходу, чтобы быстрее перейти к паромам"
+      linkBtn("🚆 Amsterdam Centraal", "https://www.google.com/maps/search/?api=1&query=Amsterdam+Centraal", true),
+      linkBtn("📍 Bijlmer ArenA", "https://www.google.com/maps/search/?api=1&query=Bijlmer+ArenA+station", false)
     ],
-    [
-      "Если есть выбор, бери ближайший поезд до Centraal",
-      "После прибытия не выходи сразу на главную площадь — дальше нужен выход к воде"
-    ]
+    ["Поезд около 20 минут", "Лучше держаться ближе к выходу", "После прибытия идите к воде, а не на главную площадь"]
   ),
 
-  card(
-    "⛴ 09:25–09:40 — Как найти паром",
-    "После выхода на Amsterdam Centraal идите не в город, а на заднюю сторону вокзала — к воде. Ищите указатели IJ / Ferry / Noord.",
+  card("⛴ 09:25–09:40 — Как найти паром",
+    "После выхода на Amsterdam Centraal не идите сразу в город. Ищите указатели IJ / Ferry / Noord и проходите на заднюю сторону вокзала — к воде. Там находится бесплатный паром Buiksloterweg.",
     [
-      {
-        type: "chips",
-        items: ["Паром бесплатный", "3–5 минут", "Очень красивая точка"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "⛴ Выход к паромам",
-            href: "https://maps.google.com/?q=Amsterdam+Centraal+IJ+side"
-          },
-          {
-            label: "📍 Buiksloterweg ferry",
-            href: "https://maps.google.com/?q=Buiksloterweg+ferry"
-          }
-        ]
-      },
-      "1) Выходите с платформы на Amsterdam Centraal",
-      "2) Ищите указатели: IJ / Ferry / Noord",
-      "3) Проходите через вокзал к воде",
-      "4) На причале садитесь на бесплатный паром Buiksloterweg",
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?amsterdam,ferry",
-            alt: "Паром в Амстердаме"
-          },
-          {
-            src: "https://source.unsplash.com/1200x800/?amsterdam,waterfront",
-            alt: "Набережная у вокзала"
-          }
-        ]
-      }
+      linkBtn("⛴ Выход к паромам", "https://www.google.com/maps/search/?api=1&query=Amsterdam+Centraal+IJ+side", true),
+      linkBtn("📍 Buiksloterweg ferry", "https://www.google.com/maps/search/?api=1&query=Buiksloterweg+ferry", false)
     ],
-    [
-      "Это задняя сторона вокзала, не главная площадь",
-      "На пароме лучше выйти на открытую палубу — там самые красивые фото на центр"
-    ]
+    ["Это задняя сторона вокзала", "Паром бесплатный", "На открытой палубе лучшие фото на центр"]
   ),
 
-  card(
-    "🌇 09:45–11:00 — A’DAM Lookout",
-    "После выхода с парома башня почти сразу видна. От причала идти буквально пару минут. Подъём простой: вход, билет, лифт, панорама.",
+  card("🌇 09:45–11:00 — A’DAM Lookout",
+    "После выхода с парома башня почти сразу видна. От причала идёте пару минут, заходите внутрь, берёте билет и поднимаетесь наверх.",
     [
-      {
-        type: "chips",
-        items: ["Утро", "Панорама", "Фото-точка", "Amsterdam Noord"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "🌇 A’DAM Lookout",
-            href: "https://maps.google.com/?q=A'DAM+Lookout"
-          },
-          {
-            label: "🎟 Сайт A’DAM",
-            href: "https://www.adamlookout.com/"
-          },
-          {
-            label: "🗺 От парома к A’DAM",
-            href: "https://www.google.com/maps/dir/Buiksloterweg+ferry/A'DAM+Lookout"
-          }
-        ]
-      },
-      "1) Выходите с парома",
-      "2) Идёте к башне — её хорошо видно",
-      "3) Заходите внутрь",
-      "4) Берёте билет",
-      "5) Поднимаетесь на лифте",
-      "6) Наверху идёте сначала к виду на центр — это лучшие кадры",
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?amsterdam,skyline,viewpoint",
-            alt: "Панорама Амстердама"
-          },
-          {
-            src: "https://source.unsplash.com/1200x800/?observation,deck,city",
-            alt: "Смотровая площадка"
-          }
-        ]
-      }
+      linkBtn("🌇 A’DAM Lookout", "https://www.google.com/maps/search/?api=1&query=A'DAM+Lookout", true),
+      linkBtn("🎟 Сайт A’DAM", "https://www.adamlookout.com/", false),
+      linkBtn("🗺 От парома к A’DAM", "https://www.google.com/maps/dir/Buiksloterweg+ferry/A'DAM+Lookout", false)
     ],
-    [
-      "Лучше быть здесь утром — меньше людей и спокойнее",
-      "Лучшие фото: на центр, на воду и у стеклянного ограждения",
-      "Если не хочется качели — просто наслаждайся панорамой, этого достаточно"
-    ]
+    ["Лучше идти утром", "Лучшие фото — на центр и воду", "Если не хочется качели — просто наслаждайтесь панорамой"]
   ),
 
-  card(
-    "☕ 11:15–12:15 — Кофе и поздний завтрак",
-    "После A’DAM не спешим. Самое приятное — спокойно выпить кофе в Noord, где атмосфера мягче и тише, чем в центре.",
+  card("☕ 11:15–12:15 — Кофе и поздний завтрак",
+    "После A’DAM лучше сделать мягкую паузу в Noord. Это спокойнее и приятнее, чем сразу уходить в перегруженный центр.",
     [
-      {
-        type: "chips",
-        items: ["Кофе", "Бранч", "Спокойный темп", "Noord"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "☕ Pllek",
-            href: "https://maps.google.com/?q=Pllek+Amsterdam"
-          },
-          {
-            label: "☕ Noorderlicht Café",
-            href: "https://maps.google.com/?q=Noorderlicht+Cafe"
-          }
-        ]
-      },
-      "Pllek — если хочется света, воздуха и более живой атмосферы",
-      "Noorderlicht — если нужен уютный интерьер и мягкое настроение",
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?coffee,cafe,amsterdam",
-            alt: "Кофе в Амстердаме"
-          },
-          {
-            src: "https://source.unsplash.com/1200x800/?brunch,cafe,interior",
-            alt: "Уютное кафе для бранча"
-          }
-        ]
-      }
+      linkBtn("☕ Pllek", "https://www.google.com/maps/search/?api=1&query=Pllek+Amsterdam", true),
+      linkBtn("☕ Noorderlicht Café", "https://www.google.com/maps/search/?api=1&query=Noorderlicht+Cafe+Amsterdam", false)
     ],
-    [
-      "Если солнечно — я бы выбрала Pllek",
-      "Если хочется спокойствия и красивого интерьера — Noorderlicht",
-      "Не затягивай надолго: впереди ещё NDSM и немного центра"
-    ]
+    ["Если солнце — я бы выбрала Pllek", "Если нужен уют — Noorderlicht", "Не затягивать слишком долго"]
   ),
 
-  card(
-    "🎨 12:30–14:30 — NDSM Wharf и STRAAT Museum",
-    "Теперь идём в сторону арт-квартала. Здесь другой Амстердам: индустриальный, свободный и очень фотогеничный.",
+  card("🎨 12:30–14:30 — NDSM Wharf и STRAAT Museum",
+    "Теперь идёте в сторону арт-квартала. Здесь другой Амстердам: индустриальный, свободный и очень фотогеничный.",
     [
-      {
-        type: "chips",
-        items: ["Стрит-арт", "Фото-точка", "Индустриальный вайб", "Noord"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "🎨 NDSM Wharf",
-            href: "https://maps.google.com/?q=NDSM+Wharf"
-          },
-          {
-            label: "🖼 STRAAT Museum",
-            href: "https://maps.google.com/?q=STRAAT+Museum"
-          }
-        ]
-      },
-      "Идёте по району без спешки, просто ловите атмосферу",
-      "Фотографируйте граффити, старые конструкции верфи, стены и проходы",
-      "Если устали — можно ограничиться прогулкой по NDSM без музея",
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?streetart,graffiti,amsterdam",
-            alt: "Стрит-арт в Амстердаме"
-          },
-          {
-            src: "https://source.unsplash.com/1200x800/?industrial,art,urban",
-            alt: "Арт-квартал Noord"
-          }
-        ]
-      }
+      linkBtn("🎨 NDSM Wharf", "https://www.google.com/maps/search/?api=1&query=NDSM+Wharf+Amsterdam", true),
+      linkBtn("🖼 STRAAT Museum", "https://www.google.com/maps/search/?api=1&query=STRAAT+Museum+Amsterdam", false)
     ],
-    [
-      "Это одна из лучших зон для необычных фото",
-      "Если погода испортится, STRAAT Museum — хороший запасной вариант"
-    ]
+    ["Лучшие фото — граффити и старые конструкции верфи", "Если устанете — можно ограничиться NDSM", "При дожде музей особенно удобен"]
   ),
 
-  card(
-    "⛴ 14:30–15:00 — Возвращение в центр",
-    "Возвращаемся тем же способом: к парому, потом снова на Amsterdam Centraal.",
+  card("⛴ 14:30–15:00 — Возвращение в центр",
+    "Возвращаетесь тем же путём: обратно к парому Buiksloterweg и снова на Amsterdam Centraal.",
     [
-      {
-        type: "chips",
-        items: ["Обратно в центр", "Мягкий свет", "Красивые виды на воду"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "⛴ Паром обратно",
-            href: "https://maps.google.com/?q=Buiksloterweg+ferry"
-          },
-          {
-            label: "🚆 Amsterdam Centraal",
-            href: "https://maps.google.com/?q=Amsterdam+Centraal"
-          }
-        ]
-      },
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?amsterdam,canal,light",
-            alt: "Мягкий свет на воде в Амстердаме"
-          }
-        ]
-      }
+      linkBtn("⛴ Паром обратно", "https://www.google.com/maps/search/?api=1&query=Buiksloterweg+ferry", true),
+      linkBtn("🚆 Amsterdam Centraal", "https://www.google.com/maps/search/?api=1&query=Amsterdam+Centraal", false)
     ],
-    [
-      "После 15:00 свет становится красивее — на воде фото особенно удачные",
-      "На пароме можно спокойно сделать ещё пару панорамных кадров"
-    ]
+    ["После 15:00 свет становится мягче", "На пароме можно сделать ещё пару красивых кадров"]
   ),
 
-  card(
-    "🏙 15:15–17:45 — Центр: Dam Square, Nine Streets, Jordaan",
-    "Здесь лучше не пытаться увидеть всё. Берём только самые атмосферные места и гуляем легко.",
+  card("🏙 15:15–17:45 — Центр: Dam Square, Nine Streets, Jordaan",
+    "В центре лучше не пытаться увидеть всё. Берите только самые атмосферные точки и гуляйте спокойно.",
     [
-      {
-        type: "chips",
-        items: ["Центр", "Каналы", "Лучшие улицы", "Фото после 16:00"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "🏙 Dam Square",
-            href: "https://maps.google.com/?q=Dam+Square+Amsterdam"
-          },
-          {
-            label: "🛍 Nine Streets",
-            href: "https://maps.google.com/?q=Nine+Streets+Amsterdam"
-          },
-          {
-            label: "🌿 Jordaan",
-            href: "https://maps.google.com/?q=Jordaan"
-          }
-        ]
-      },
-      "Dam Square — короткая остановка как стартовая точка",
-      "Nine Streets — красивые витрины, мостики и уютные улицы",
-      "Jordaan — самая приятная часть этой прогулки",
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?amsterdam,canals",
-            alt: "Каналы Амстердама"
-          },
-          {
-            src: "https://source.unsplash.com/1200x800/?amsterdam,street,bridge",
-            alt: "Мосты и улицы Амстердама"
-          }
-        ]
-      }
+      linkBtn("🏙 Dam Square", "https://www.google.com/maps/search/?api=1&query=Dam+Square+Amsterdam", true),
+      linkBtn("🛍 Nine Streets", "https://www.google.com/maps/search/?api=1&query=Nine+Streets+Amsterdam", false),
+      linkBtn("🌿 Jordaan", "https://www.google.com/maps/search/?api=1&query=Jordaan+Amsterdam", false)
     ],
-    [
-      "На Dam Square долго не задерживайся",
-      "Самые красивые фото — у каналов в Jordaan и на боковых улочках Nine Streets",
-      "Ищи мосты с отражением воды и более тихие места"
-    ]
+    ["На Dam Square долго не задерживаться", "Лучшие фото — в Jordaan и у каналов", "Ищите мосты с отражением воды"]
   ),
 
-  card(
-    "🍽 18:00–18:45 — Лёгкий ужин до концерта",
-    "Перед концертом лучше поесть заранее и не делать длинную ресторанную остановку.",
-    [
-      {
-        type: "chips",
-        items: ["Лёгкий ужин", "Без спешки", "До 19:00"]
-      },
-      "Идея ужина: паста, боул, суп, бургер или что-то простое и быстрое",
-      "Главное — поесть спокойно, но не затянуть время",
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?dinner,restaurant,europe",
-            alt: "Лёгкий ужин перед концертом"
-          }
-        ]
-      }
-    ],
-    [
-      "Я бы не планировала здесь ресторан «на событие»",
-      "Лучше лёгкий ужин и потом спокойно ехать на концерт"
-    ]
+  card("🍽 18:00–18:45 — Лёгкий ужин до концерта",
+    "Перед концертом лучше выбрать лёгкий ужин и не делать длинную ресторанную остановку.",
+    [],
+    ["Идеально: паста, суп, боул или бургер", "Лучше поесть до 19:00", "Не перегружать день"]
   ),
 
-  card(
-    "🚆 19:00–19:30 — Возвращение к AFAS Live",
-    "Из центра возвращаемся на Amsterdam Bijlmer ArenA, оттуда пешком несколько минут до AFAS Live.",
+  card("🚆 19:00–19:30 — Возвращение к AFAS Live",
+    "Из центра возвращаетесь на Bijlmer ArenA, оттуда пешком несколько минут до AFAS Live.",
     [
-      {
-        type: "chips",
-        items: ["Поезд ~20 минут", "Пешком совсем немного", "Удобный финал дня"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "🎸 AFAS Live",
-            href: "https://maps.google.com/?q=AFAS+Live"
-          },
-          {
-            label: "🚆 Bijlmer ArenA",
-            href: "https://maps.google.com/?q=Bijlmer+ArenA+station"
-          },
-          {
-            label: "🗺 Станция → AFAS Live",
-            href: "https://www.google.com/maps/dir/Bijlmer+ArenA+station/AFAS+Live"
-          }
-        ]
-      },
-      "После выхода со станции ориентируйтесь на AFAS Live — он рядом",
-      "Участок очень удобный и короткий",
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?concert,venue",
-            alt: "Концертная площадка"
-          }
-        ]
-      }
+      linkBtn("🎸 AFAS Live", "https://www.google.com/maps/search/?api=1&query=AFAS+Live+Amsterdam", true),
+      linkBtn("🚆 Bijlmer ArenA", "https://www.google.com/maps/search/?api=1&query=Bijlmer+ArenA+station", false),
+      linkBtn("🗺 Станция → AFAS Live", "https://www.google.com/maps/dir/Bijlmer+ArenA+station/AFAS+Live", false)
     ],
-    [
-      "Лучше приехать за 30–40 минут до начала",
-      "Так день закончится спокойно, без суеты"
-    ]
+    ["Поезд около 20 минут", "Пешком совсем немного", "Лучше приехать за 30–40 минут"]
   ),
 
-  card(
-    "🎸 Вечер — концерт Skillet в AFAS Live",
+  card("🎸 Вечер — концерт Skillet в AFAS Live",
     "Главный момент дня. К этому времени вы уже увидите красивый Амстердам, но не устанете слишком сильно.",
     [
-      {
-        type: "chips",
-        items: ["Skillet", "AFAS Live", "Главное событие дня"]
-      },
-      {
-        type: "buttons",
-        primaryFirst: true,
-        buttons: [
-          {
-            label: "🎸 Открыть AFAS Live",
-            href: "https://maps.google.com/?q=AFAS+Live"
-          }
-        ]
-      },
-      {
-        type: "photos",
-        photos: [
-          {
-            src: "https://source.unsplash.com/1200x800/?rock,concert,lights",
-            alt: "Рок-концерт"
-          }
-        ]
-      }
+      linkBtn("🎸 Открыть AFAS Live", "https://www.google.com/maps/search/?api=1&query=AFAS+Live+Amsterdam", true)
     ],
-    [
-      "После концерта можно не выходить сразу — подожди 15–20 минут",
-      "До отеля вернуться будет легко, потому что район уже знакомый"
-    ]
+    ["После концерта можно не выходить сразу", "Подождать 15–20 минут — и потом спокойно вернуться"]
   ),
 
-  card(
-    "❤️ Мои советы на этот день",
-    "Как я бы прожила этот день сама, чтобы он получился красивым, лёгким и без перегруза.",
+  card("❤️ Мои советы на этот день",
+    "Как лучше прожить этот день, чтобы он был красивым, удобным и без суеты.",
+    [],
     [
-      {
-        type: "chips",
-        items: ["Мой лучший сценарий", "Комфортно", "Красиво", "Без суеты"]
-      },
-      "1) Утром спокойно выехать и не спешить",
-      "2) Сделать главные фото на пароме, в A’DAM, в NDSM и в Jordaan",
-      "3) Кофе пить именно в Noord — там приятнее и спокойнее",
-      "4) В центре гулять коротко и выбирать атмосферу, а не «успеть всё»",
-      "5) До концерта поесть легко и приехать заранее"
-    ],
-    [
-      "Если устанете — смело сокращайте центр, но оставляйте A’DAM и Noord",
-      "Если будет дождь — делайте упор на A’DAM, кафе и STRAAT Museum",
-      "Если солнце — обязательно используйте паром и каналы для фото"
+      "Главные фото: паром, A’DAM, NDSM и Jordaan",
+      "Кофе лучше пить именно в Noord",
+      "Если устанете — сокращайте центр, но оставляйте A’DAM и Noord",
+      "Если дождь — делайте упор на A’DAM, кафе и STRAAT Museum"
     ]
   ),
-];
+],
       d20: [
         card("🧳 Возвращение",
           "Добавим тайминг сборов, дорогу в аэропорт и чек-лист перед выходом.",
